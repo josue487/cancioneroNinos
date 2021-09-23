@@ -180,6 +180,8 @@ class BuscarActivity : AppCompatActivity() {
                 binding.MenuOpcionPlay.setImageResource(R.drawable.ic_pause)
             }
         }
+
+         
         else{
             val url = "https://drive.google.com/open?id=1cEhQvS5Nmnsynvlt44EYhi3cdWC-tSJX" // your URL here
             val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
