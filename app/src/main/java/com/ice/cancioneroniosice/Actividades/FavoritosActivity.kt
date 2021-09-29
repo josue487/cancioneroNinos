@@ -46,7 +46,7 @@ class FavoritosActivity : AppCompatActivity() {
     }
 
 
-
+// Carga la lista de Favoritos
     fun cargarFavoritos(){
         listaFavoritos = servicioBD.buscarFavoritos()
         for (i in listaFavoritos){

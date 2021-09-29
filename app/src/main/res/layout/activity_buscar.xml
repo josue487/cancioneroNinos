@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menu_1"
+    android:background="@drawable/fondo_1"
     tools:context=".Actividades.BuscarActivity">
 
 
   <TextView
       android:id="@+id/lblCancion"
-      android:layout_width="368dp"
-      android:layout_height="648dp"
+      android:layout_width="392dp"
+      android:layout_height="650dp"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
       android:layout_marginTop="97dp"
+      android:layout_marginBottom="5dp"
       android:background="#B0050505"
       android:fontFamily="@font/belgrano"
       android:scrollbars="vertical"
       android:text="Cancion"
       android:textAlignment="gravity"
       android:textColor="#F8F5F5"
-      android:textSize="22sp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.609" />
+      android:textSize="22sp" />
 
   <com.github.clans.fab.FloatingActionMenu
       android:id="@+id/fmMenu"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
       app:layout_constraintTop_toTopOf="parent"
-      app:menu_fab_label="Menú"
-      >
+      app:menu_fab_label="Menú">
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/menuOpcionFavorito"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:onClick="btnFavorito"
         android:src="@drawable/ic_favorito"
-        app:fab_label="Favorito"
-        android:onClick="btnFavorito"/>
+        app:fab_label="Favorito" />
 
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/menuOpcionSubirSemitono"
@@ -62,33 +61,38 @@
         android:id="@+id/MenuOpcionPlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:onClick="btnPlayPause"
         android:src="@drawable/ic_play"
-        app:fab_label="Escuchar"
-        android:onClick="btnPlayPause"/>
+        app:fab_label="Escuchar" />
 
   </com.github.clans.fab.FloatingActionMenu>
+
 
   <TextView
       android:id="@+id/lblTitulo"
       android:layout_width="293dp"
       android:layout_height="34dp"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentEnd="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="27dp"
+      android:layout_marginEnd="60dp"
       android:background="#FFEB3B"
       android:text="Titulo"
       android:textAlignment="center"
       android:textColor="#050505"
       android:textSize="25sp"
       android:textStyle="bold"
-      app:layout_constraintBottom_toTopOf="@+id/lblCancion"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.576"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.571" />
+ />
 
   <Button
       android:id="@+id/button"
-      android:layout_width="52dp"
-      android:layout_height="48dp"
+      android:layout_width="50dp"
+      android:layout_height="37dp"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginStart="5dp"
+      android:layout_marginTop="6dp"
       android:background="@color/design_default_color_secondary"
       android:onClick="atras"
       app:icon="@drawable/abc_vector_test"
@@ -100,4 +104,4 @@
       app:layout_constraintVertical_bias="0.45" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

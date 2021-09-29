@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
 
 
     //Primera ejecucion copia una base de datos preexistente al sistema
+    //Segunda ejecucion no hace nada
     fun copiarBaseDeDatos() {
         val ruta = "/data/data/com.ice.cancioneroniosice/databases/"
         val archivo = "bdCancioneroChicos.db"

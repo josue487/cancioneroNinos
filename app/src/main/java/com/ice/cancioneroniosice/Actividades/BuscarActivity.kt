@@ -21,9 +21,11 @@ class BuscarActivity : AppCompatActivity() {
 
     //Necesario para trabajar con viewbinding
     private lateinit var binding : ActivityBuscarBinding
+
     lateinit var cancionBuscada : Cancion
     var notasCancionNiños : String = ""
     var posicion : Int = 0
+    var mediaPlayer = MediaPlayer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +43,9 @@ class BuscarActivity : AppCompatActivity() {
 
 
     fun cargarCancion(idHimno : Int){
+
+        val lugar = "R.raw.al_son_del_cocodrilo"
+        mediaPlayer = MediaPlayer.create(this, R.raw.al_son_del_cocodrilo)
 
         posicion=idHimno
         cancionBuscada = servicioBD.buscarCancion(idHimno)
@@ -112,17 +117,6 @@ class BuscarActivity : AppCompatActivity() {
 
 
 
-    //Comentario Formato de la Base de Datos para trabajar
-    // Simbolos
-    // / significa salto de linea
-    // * significa que en este lugar va el coro si o si
-    // + Significa que en este lugar va el coro opcionalmente como para que aparezca en multiples ocaciones
-
-
-
-
-
-
 
     fun presentarEnVista(cancionChicos : String, notasChicos : String){
         var cancionFinal = formatearCancionYNotas(cancionChicos , notasChicos)
@@ -163,16 +157,19 @@ class BuscarActivity : AppCompatActivity() {
         formatearFavorito(servicioBD.cambiarEstadoFavorito(cancionBuscada.id))
     }
 
-    fun btnPlayPause(v: View){
-        if (true) {
-            Toast.makeText(
-                this@BuscarActivity,
-                "Aun No Esta Disponible Esta Función",
-                Toast.LENGTH_SHORT
-            ).show()
 
-            val mediaPlayer: MediaPlayer = MediaPlayer.create(this, R.raw.al_son_del_cocodrilo)
-            if (mediaPlayer.isPlaying()) {
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        mediaPlayer.stop()
+    }
+
+
+    //Todo Funcionalidad Completa boton play aun sin funcionar
+    fun btnPlayPause(v: View){
+        if (false) {
+
+            if (mediaPlayer.isPlaying() ) {
                 mediaPlayer.pause()
                 binding.MenuOpcionPlay.setImageResource(R.drawable.ic_play)
             } else {
@@ -180,29 +177,12 @@ class BuscarActivity : AppCompatActivity() {
                 binding.MenuOpcionPlay.setImageResource(R.drawable.ic_pause)
             }
         }
-
          
         else{
-            val url = "https://drive.google.com/open?id=1cEhQvS5Nmnsynvlt44EYhi3cdWC-tSJX" // your URL here
-            val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
-                try{
-                    setAudioAttributes(
-                        AudioAttributes.Builder()
-                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                            .setUsage(AudioAttributes.USAGE_MEDIA)
-                            .build()
-                    )
-                    setDataSource(url)
-                    prepareAsync() // might take long! (for buffering, etc)
-                    start()
-                }catch (error : Error){
-                    val mensaje = error.toString()
-                    Toast.makeText(this@BuscarActivity, mensaje, Toast.LENGTH_SHORT).show()
-                }
-
-            }
-
+            Toast.makeText(this@BuscarActivity, "Esta Opcion Aun no Esta Disponible", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 
 }

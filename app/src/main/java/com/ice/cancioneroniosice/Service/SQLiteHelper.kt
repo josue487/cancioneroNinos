@@ -22,6 +22,7 @@ class SQLiteHelper(
         TODO("Not yet implemented")
     }
 
+    //Busca una Cancion
     fun buscarCancion (idCancion : Int) : Cancion {
         val bd : SQLiteDatabase = readableDatabase
         val cursor : Cursor = bd.rawQuery("SELECT * FROM cancionero WHERE $idCancion LIKE id", null)
@@ -40,6 +41,7 @@ class SQLiteHelper(
         return cancionBuscada
     }
 
+    //Devuelve la totalidad de las canciones en la base de datos
     fun listarCanciones () :  ArrayList<Cancion>{
         val bd : SQLiteDatabase = readableDatabase
         val cursor : Cursor = bd.rawQuery("SELECT * FROM cancionero", null)
@@ -60,6 +62,7 @@ class SQLiteHelper(
         return listaTotal
     }
 
+    //Devuelve una lista con los favoritos
     fun buscarFavoritos () :  ArrayList<Cancion>{
         val bd : SQLiteDatabase = readableDatabase
         val cursor : Cursor = bd.rawQuery("SELECT * FROM cancionero WHERE favorito LIKE 1", null)
@@ -81,7 +84,7 @@ class SQLiteHelper(
     }
 
 
-
+//Cambia el estado de favorito al contrario si es 1 a despues se hace 0 y viseversa
     fun cambiarEstadoFavorito(idCancion : Int) : Boolean{
         val bd : SQLiteDatabase = readableDatabase
         val cursor : Cursor = bd.rawQuery("SELECT * FROM cancionero WHERE $idCancion LIKE id", null)
