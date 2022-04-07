@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/menu_1"
-    tools:context=".Actividades.MainActivity">
+    tools:context=".activities.MainActivity">
 
     <ListView
         android:id="@+id/lViewFavoritos"
@@ -15,14 +15,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="10dp"
         android:background="#79FFEB3B"
         android:cacheColorHint="#FDFDFD"
         android:footerDividersEnabled="true"
         android:foregroundTint="#E60202"
-        android:headerDividersEnabled="true" />
+        android:headerDividersEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnFavoritos"
@@ -30,12 +30,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="0dp"
-        android:onClick="btnFavoritos"
-        android:text="Favoritos"
+        android:layout_margin="20dp"
+        android:text="@string/favoritos"
         android:textAlignment="center"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
